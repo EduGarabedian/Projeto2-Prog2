@@ -27,7 +27,7 @@ public abstract class ChartsDao {
                 try {
                         PreparedStatement statement = conexao.prepareStatement(createSQL);
 
-                        statement.setString(1, Charts.getUserName());
+                        statement.setString(1, charts.getUserName());
 
                         int registros = statement.executeUpdate();
 
@@ -58,7 +58,7 @@ public abstract class ChartsDao {
 
                         while (resultSet.next()) {
                                 Charts charts = new Charts();
-                                charts.setUserName(resultSet.getString("UserName"));
+                                charts.set(resultSet.getString("UserName"));
                                 charts.add(charts);
                         }
                         return charts;
