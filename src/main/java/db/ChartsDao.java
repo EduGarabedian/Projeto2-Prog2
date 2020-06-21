@@ -1,5 +1,6 @@
 package db;
 import api.Charts;
+import java.util.List;
 
 
 public abstract class ChartsDao {
@@ -7,11 +8,11 @@ public abstract class ChartsDao {
 
         abstract boolean create(Charts var1);
 
-        Lista<Charts> read();
+        abstract List<Charts> read();
 
-        boolean update(Charts var1);
+        abstract boolean update(Charts var1);
 
-        boolean delete(Charts var1);
+        abstract boolean delete(Charts var1);
 
 
 
