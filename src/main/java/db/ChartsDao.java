@@ -8,9 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
 public abstract class ChartsDao {
         private String createSQL = "INSERT INTO mack_edu.usuario VALUES (?)";
         private String readSQL = "SELECT * FROM mack_edu.usuario";

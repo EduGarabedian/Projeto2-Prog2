@@ -1,6 +1,6 @@
 package resources;
 
-import org.db.ChartsDao;
+import db.ChartsDao;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.assets.AssetsBundle;
