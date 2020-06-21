@@ -12,7 +12,6 @@ import java.util.List;
 
 
 public abstract class ChartsDao {
-
         private String createSQL = "INSERT INTO mack_edu.usuario VALUES (?)";
         private String readSQL = "SELECT * FROM mack_edu.usuario";
         private String readSQL2 = "SELECT * FROM mack_edu.userstatus";
@@ -21,7 +20,7 @@ public abstract class ChartsDao {
         private Object Charts;
 
 
-        @Override
+
         public boolean create(Charts charts) {
                 Connection conexao = mysql.getConnection();
                 try {
@@ -47,10 +46,10 @@ public abstract class ChartsDao {
                 return false;
         }
 
-        @Override
+
         public List<Charts> read() {
                 Connection conexao = mysql.getConnection();
-                List<Charts> iDumbs = new ArrayList();
+                List<Charts> Charts= new ArrayList();
 
                 try {
                         PreparedStatement statement = conexao.prepareStatement(readSQL);
@@ -59,9 +58,9 @@ public abstract class ChartsDao {
                         while (resultSet.next()) {
                                 Charts charts = new Charts();
                                 charts.set(resultSet.getString("UserName"));
-                                charts.add(charts);
+                                Charts.add(charts);
                         }
-                        return charts;
+                        return Charts;
                 } catch (final SQLException e) {
                         System.out.println("Falha de conexão com a base de dados");
                         e.printStackTrace();
@@ -77,5 +76,6 @@ public abstract class ChartsDao {
                 return (List<api.Charts>) Charts;
         }
 }
+
 
 
