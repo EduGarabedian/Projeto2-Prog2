@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
 public abstract class ChartsDao {
 
         private String createSQL = "INSERT INTO mack_edu.usuario VALUES (?)";
