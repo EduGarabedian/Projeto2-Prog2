@@ -1,7 +1,7 @@
 package api;
 import java.util.ArrayList;
 import java.util.List;
-public class Charts {
+
 
 
     public class Charts {
@@ -32,5 +32,4 @@ public class Charts {
 
 
 
-}
-}
+
