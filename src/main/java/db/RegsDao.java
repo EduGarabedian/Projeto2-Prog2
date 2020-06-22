@@ -1,5 +1,5 @@
 package db;
-import api.Charts;
+import api.Regs;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,23 +8,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChartsDao {
-        private String createSQL = "INSERT INTO mack_edu.usuario VALUES (?)";
-        private String readSQL = "SELECT * FROM mack_edu.usuario";
-        private String updateSQL = "UPDATE mack_edu.usuario SET UserName=?";
-        private  String deleteSQL= "DELETE FROM mack_edu WHERE id=?";
+public class RegsDao {
+        private String createSQL = "INSERT INTO mack_edu.registros VALUES (?,?)";
+        private String readSQL = "SELECT * FROM mack_edu.registros";
+        private String updateSQL = "UPDATE mack_edu.registros SET date=? and acessos=?";
+        private  String deleteSQL= "DELETE FROM mack_edu.registros WHERE date=?";
 
         private final mySQLConnection mysql = new mySQLConnection();
-        private Object Charts;
+        private Object Regs;
 
 
 
-        public boolean create(Charts charts) {
+        public boolean create(Regs regs) {
                 Connection conexao = mysql.getConnection();
                 try {
                         PreparedStatement statement = conexao.prepareStatement(createSQL);
 
-                        statement.setString(1, charts.getUserName());
+                        statement.setString(1, regs.getDate());
+                        statement.setInt(2,regs.getAcessos());
 
                         int registros = statement.executeUpdate();
 
@@ -45,20 +46,21 @@ public class ChartsDao {
         }
 
 
-        public List<Charts> read() {
+        public List<Regs> read() {
                 Connection conexao = mysql.getConnection();
-                List<Charts> Charts= new ArrayList();
+                List<Regs> Regs = new ArrayList();
 
                 try {
                         PreparedStatement statement = conexao.prepareStatement(readSQL);
                         ResultSet resultSet = statement.executeQuery();
 
                         while (resultSet.next()) {
-                                Charts charts = new Charts();
-                                charts.set(resultSet.getString("UserName"));
-                                Charts.add(charts);
+                                Regs regs = new Regs();
+                                regs.setDate(resultSet.getString("Date"));
+                                regs.setAcessos(resultSet.getInt("Acessos"));
+                                Regs.add(regs);
                         }
-                        return Charts;
+                        return Regs;
                 } catch (final SQLException e) {
                         System.out.println("Falha de conexão com a base de dados");
                         e.printStackTrace();
@@ -71,15 +73,16 @@ public class ChartsDao {
                                 e.printStackTrace();
                         }
                 }
-                return Charts;
+                return Regs;
         }
 
-        public boolean update(Charts charts){
+        public boolean update(Regs regs){
                 Connection conexao = mysql.getConnection();
                 try{
                         PreparedStatement statement=conexao.prepareStatement(updateSQL);
 
-                        statement.setString(1, charts.getUserName());
+                        statement.setString(1, regs.getDate());
+                        statement.setInt(2, regs.getAcessos());
 
                         int registros= statement.executeUpdate();
 
@@ -99,12 +102,12 @@ public class ChartsDao {
                 return false;
         }
 
-        public boolean delete(Charts charts){
+        public boolean delete(Regs regs){
                 Connection conexao = mysql.getConnection();
                 try{
                         PreparedStatement statement= conexao.prepareStatement(deleteSQL);
 
-                        statement.setString(1,charts.getUserName());
+                        statement.setString(1, regs.getDate());
 
                         int registros= statement.executeUpdate();
 

@@ -2,24 +2,36 @@ package api;
 import java.util.ArrayList;
 import java.util.List;
 
-    public class Charts {
+    public class Regs {
         private String term;
-        private String UserName;
         private List<Results> results;
+        private String date;
+        private int acessos;
 
-        public Charts() {
+        public Regs() {
             this.results = new ArrayList();
         }
-        public Charts(String term, String UserName, List<Results> data) {
+        public Regs(String term, String UserName, List<Results> data) {
             this.term = term;
             this.results = data;
-            this.UserName= UserName;
+            this.date= date;
+            this.acessos=acessos;
         }
-        public String getUserName(){
-            return UserName;
+
+        public String getDate() {
+            return date;
         }
-        public void set(String UserName){
-            this.UserName =UserName;
+
+        public void setDate(String date) {
+            this.date = date;
+        }
+
+        public int getAcessos() {
+            return acessos;
+        }
+
+        public void setAcessos(int acessos) {
+            this.acessos = acessos;
         }
 
         public String getTerm() {

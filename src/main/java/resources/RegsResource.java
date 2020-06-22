@@ -1,6 +1,6 @@
 package resources;
-import api.Charts;
-import db.ChartsDao;
+import api.Regs;
+import db.RegsDao;
 
 import java.util.List;
 
@@ -10,17 +10,17 @@ import javax.ws.rs.core.MediaType;
 @Path("charts")
 
 @Produces(MediaType.APPLICATION_JSON)
-public class ChartsResource {
+public class RegsResource {
 
 
-        ChartsDao dao;
+        RegsDao dao;
 
-        public ChartsResource(ChartsDao dao){
+        public RegsResource(RegsDao dao){
             this.dao=dao;
         }
 
         @GET
-        public List<Charts> getResults(){
+        public List<Regs> getResults(){
             return this.dao.read();
         }
 

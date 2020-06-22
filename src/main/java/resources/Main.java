@@ -1,6 +1,6 @@
 package resources;
 
-import db.ChartsDao;
+import db.RegsDao;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.assets.AssetsBundle;
@@ -49,8 +49,8 @@ public class Main extends Application<Configuration>{
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
         // Registrando Recursos
-        ChartsDao dao = new ChartsDao();
-        ChartsResource trendsResource = new ChartsResource(dao);
+        RegsDao dao = new RegsDao();
+        RegsResource trendsResource = new RegsResource(dao);
         environment.jersey().register(trendsResource);
 
         // Mudar rotas dos recursos
