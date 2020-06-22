@@ -32,8 +32,8 @@ import java.util.List;
         public List<Regs> getRegs() {
             return regs;
         }
-        public void setResults(List<Results> results) {
-            this.regs = results == null ? new ArrayList() : results;
+        public void setRegs(List<Regs> regs) {
+            this.regs = regs == null ? new ArrayList() : regs;
         }
 
 
