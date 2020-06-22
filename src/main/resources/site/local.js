@@ -3,16 +3,15 @@
 //Teste insere acessos
 //var button = document.querySelector('button');
 
-//button.onclick = function() {
-//  var nome = prompt('Quantos acessos você fez hoje?');
-//}
+button.onclick = function readAcesso(data, acesso) {
+  var nome = prompt('Quantos acessos você fez hoje?');
+}
 
 
-//function readDataAcesso(dataChave) {
-//    var data = document.getElementById("para1");
-//    var acesso = document.getElementById();
-//    elemento.style.color = novaCor;
-//}
+function readDataAcesso(data, acesso) {
+    var data = document.getElementById("para1");
+    var acesso = document.getElementById();
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////
