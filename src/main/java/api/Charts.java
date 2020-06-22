@@ -2,8 +2,6 @@ package api;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
     public class Charts {
         private String term;
         private String UserName;

@@ -11,7 +11,8 @@ import java.util.List;
 public class ChartsDao {
         private String createSQL = "INSERT INTO mack_edu.usuario VALUES (?)";
         private String readSQL = "SELECT * FROM mack_edu.usuario";
-        private String readSQL2 = "SELECT * FROM mack_edu.userstatus";
+        private String updateSQL = "UPDATE mack_edu.usuario SET UserName=?";
+        private  String deleteSQL= "DELETE FROM mack_edu WHERE id=?";
 
         private final mySQLConnection mysql = new mySQLConnection();
         private Object Charts;
@@ -70,7 +71,57 @@ public class ChartsDao {
                                 e.printStackTrace();
                         }
                 }
-                return (List<api.Charts>) Charts;
+                return Charts;
+        }
+
+        public boolean update(Charts charts){
+                Connection conexao = mysql.getConnection();
+                try{
+                        PreparedStatement statement=conexao.prepareStatement(updateSQL);
+
+                        statement.setString(1, charts.getUserName());
+
+                        int registros= statement.executeUpdate();
+
+                        return registros>0? true:false;
+                }catch (final SQLException ex){
+                        System.out.println("Falha na conexão com a base de dados");
+                        ex.printStackTrace();
+                }catch (final Exception ex){
+                        ex.printStackTrace();
+                }finally {
+                        try{
+                                conexao.close();
+                        }catch (final Exception ex){
+                                ex.printStackTrace();
+                        }
+                }
+                return false;
+        }
+
+        public boolean delete(Charts charts){
+                Connection conexao = mysql.getConnection();
+                try{
+                        PreparedStatement statement= conexao.prepareStatement(deleteSQL);
+
+                        statement.setString(1,charts.getUserName());
+
+                        int registros= statement.executeUpdate();
+
+                        return registros>0;
+                }catch(final SQLException ex){
+                        System.out.println("Falha na conexão com a base de dados");
+                        ex.printStackTrace();
+                }catch (final Exception ex){
+                        ex.printStackTrace();
+                }finally {
+                        try{
+                                conexao.close();
+                        }catch (final Exception ex){
+                                ex.printStackTrace();
+                        }
+                }
+                return false;
         }
 }
 
