@@ -15,8 +15,6 @@ public class RegsDao {
         private  String deleteSQL= "DELETE FROM mack_edu.registros WHERE date=?";
 
         private final mySQLConnection mysql = new mySQLConnection();
-        private Object Regs;
-
 
 
         public boolean create(Regs regs) {
@@ -102,12 +100,12 @@ public class RegsDao {
                 return false;
         }
 
-        public boolean delete(Regs regs){
+        public boolean delete(String date){
                 Connection conexao = mysql.getConnection();
                 try{
                         PreparedStatement statement= conexao.prepareStatement(deleteSQL);
 
-                        statement.setString(1, regs.getDate());
+                        statement.setString(1, date);
 
                         int registros= statement.executeUpdate();
 

@@ -3,17 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
     public class Regs {
-        private String term;
-        private List<Results> results;
+        private List<Regs> regs;
         private String date;
         private int acessos;
 
         public Regs() {
-            this.results = new ArrayList();
-        }
-        public Regs(String term, String UserName, List<Results> data) {
-            this.term = term;
-            this.results = data;
+            this.regs = regs;
             this.date= date;
             this.acessos=acessos;
         }
@@ -34,18 +29,11 @@ import java.util.List;
             this.acessos = acessos;
         }
 
-        public String getTerm() {
-            return term;
-        }
-        public void setTerm(String term) {
-            this.term = term;
-        }
-
-        public List<Results> getResults() {
-            return results;
+        public List<Regs> getRegs() {
+            return regs;
         }
         public void setResults(List<Results> results) {
-            this.results = results == null ? new ArrayList() : results;
+            this.regs = results == null ? new ArrayList() : results;
         }
 
 
