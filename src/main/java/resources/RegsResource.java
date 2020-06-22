@@ -7,7 +7,7 @@ import java.util.List;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("charts")
+@Path("regs")
 
 @Produces(MediaType.APPLICATION_JSON)
 public class RegsResource {
