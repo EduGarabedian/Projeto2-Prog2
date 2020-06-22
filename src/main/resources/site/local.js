@@ -1,4 +1,22 @@
 
+
+//Teste insere acessos
+//var button = document.querySelector('button');
+
+//button.onclick = function() {
+//  var nome = prompt('Quantos acessos você fez hoje?');
+//}
+
+
+//function readDataAcesso(dataChave) {
+//    var data = document.getElementById("para1");
+//    var acesso = document.getElementById();
+//    elemento.style.color = novaCor;
+//}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
 // set the dimensions and margins of the graph
 var margin = { top: 10, right: 30, bottom: 30, left: 60 },
     width = 860 - margin.left - margin.right,
