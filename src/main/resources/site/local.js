@@ -4,13 +4,13 @@
 //var button = document.querySelector('button');
 
 button.onclick = function readAcesso(data, acesso) {
-  var nome = prompt('Quantos acessos você fez hoje?');
+
 }
 
 
 function readDataAcesso(data, acesso) {
-    var data = document.getElementById("para1");
-    var acesso = document.getElementById();
+    var data = document.getElementById("txtNome");
+    var acesso = document.getElementById("txtMatricula");
 }
 
 
