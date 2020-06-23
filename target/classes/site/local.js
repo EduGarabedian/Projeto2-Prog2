@@ -3,15 +3,15 @@
 //Teste insere acessos
 //var button = document.querySelector('button');
 
-//button.onclick = function readAcesso(data, acesso) {
-//  var nome = prompt('Quantos acessos você fez hoje?');
-//}
+button.onclick = function readAcesso(data, acesso) {
+
+}
 
 
-//function readDataAcesso(data, acesso) {
-//    var data = document.getElementById("para1");
-//    var acesso = document.getElementById();
-//}
+function readDataAcesso(data, acesso) {
+    var data = document.getElementById("txtNome");
+    var acesso = document.getElementById("txtMatricula");
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +29,7 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 //Read the data
-d3.json("/api/regs")
+d3.json("/api/trends",
     // Now I can use this dataset:
     function (data) {
 

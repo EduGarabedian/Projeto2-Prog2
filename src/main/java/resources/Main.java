@@ -1,6 +1,6 @@
 package resources;
 
-import api.Regs;
+
 import db.RegsDao;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
@@ -24,7 +24,7 @@ public class Main extends Application<Configuration>{
 
     @Override
     public void initialize(Bootstrap<Configuration> bootstrap) {
-        AssetsBundle assetsBundle = new AssetsBundle("/html", "/site", "index.html");
+        AssetsBundle assetsBundle = new AssetsBundle("/site", "/", "index.html");
         bootstrap.addBundle(assetsBundle);
     }
 

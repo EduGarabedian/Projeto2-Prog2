@@ -3,26 +3,29 @@ import java.util.ArrayList;
 import java.util.List;
 
     public class Regs {
-        private String date;
-        private int acessos;
+        private String term;
+        private List<Results> results;
 
-        public String getDate() {
-            return date;
+        public Regs(){
+            this.results=new ArrayList();
         }
 
-        public void setDate(String date) {
-            this.date = date;
+        public Regs(String term, List<Results> data){
+            this.term=term;
+            this.results= data;
         }
 
-        public int getAcessos() {
-            return acessos;
+        public String getTerm() {
+            return term;
         }
 
-        public void setAcessos(int acessos) {
-            this.acessos = acessos;
+        public List<Results> getResults(){
+            return results;
         }
 
-
+        public void setResults(List<Results> results) {
+            this.results = results == null ? new ArrayList() : results;
+        }
 
 
     }

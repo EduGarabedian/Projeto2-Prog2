@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class mySQLConnection {
-    String url="jdbc:mysql://127.0.0.1:3306/mack_edu";
+    String url="jdbc:mysql://127.0.0.1:3306/mack_edu?useTimezone=true&serverTimezone=UTC";
     String usuario="Edu";
     String senha="root";
 

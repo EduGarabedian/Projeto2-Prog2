@@ -1,5 +1,6 @@
 package resources;
 import api.Regs;
+import api.Results;
 import db.RegsDao;
 import java.util.List;
 import javax.ws.rs.*;
@@ -16,20 +17,20 @@ public class RegsResource {
     }
 
     @POST
-        public Regs create(Regs r){
-            this.dao.create(r);
-            return r;
+        public Results create(Results results){
+            this.dao.create(results);
+            return results;
         }
 
         @GET
-        public List<Regs> read(){
+        public List<Results> read(){
         return this.dao.read();
         }
 
         @PUT
-        public Regs update(Regs r){
-            if(dao.update(r)){
-                return r;
+        public Results update(Results results){
+            if(dao.update(results)){
+                return results;
             }
             throw new NotFoundException();
         }

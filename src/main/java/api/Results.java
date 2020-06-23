@@ -4,33 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Results {
-    private String term;
-    private List<Results> results;
+    private String date;
+    private int acessos;
+    private int size;
 
-    public Results(){
-        this.results= new ArrayList();
+    public String getDate(){
+        return date;
     }
 
-    public Results (String term, List<Results> data){
-        this.term=term;
-        this.results=data;
-
+    public void setDate(String date){
+        this.date=date;
     }
 
-    public String getTerm(){
-        return term;
+    public int getAcessos(){
+        return acessos;
     }
 
-    public void setTerm(String term){
-        this.term=term;
-    }
-
-    public List<Results> getResults(){
-        return results;
-    }
-
-    public void setResults(List<Results> results) {
-        this.results = results == null ? new ArrayList() : results;
+    public void setAcessos(int acessos){
+        this.acessos=acessos;
     }
 
 

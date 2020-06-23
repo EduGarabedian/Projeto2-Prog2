@@ -1,5 +1,6 @@
 package db;
 import api.Regs;
+import api.Results;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,13 +18,13 @@ public class RegsDao {
         private final mySQLConnection mysql = new mySQLConnection();
 
 
-        public boolean create(Regs regs) {
+        public boolean create(Results res) {
                 Connection conexao = mysql.getConnection();
                 try {
                         PreparedStatement statement = conexao.prepareStatement(createSQL);
 
-                        statement.setString(1, regs.getDate());
-                        statement.setInt(2,regs.getAcessos());
+                        statement.setString(1, res.getDate());
+                        statement.setInt(2,res.getAcessos());
 
                         int registros = statement.executeUpdate();
 
@@ -43,21 +44,21 @@ public class RegsDao {
                 return false;
         }
 
-        public List<Regs> read() {
+        public List<Results> read() {
                 Connection conexao = mysql.getConnection();
-                List<Regs> Regs = new ArrayList();
+                List<Results> Res = new ArrayList();
 
                 try {
                         PreparedStatement statement = conexao.prepareStatement(readSQL);
                         ResultSet resultSet = statement.executeQuery();
 
                         while (resultSet.next()) {
-                                Regs regs = new Regs();
-                                regs.setDate(resultSet.getString("Date"));
-                                regs.setAcessos(resultSet.getInt("acessos"));
-                                Regs.add(regs);
+                                Results res = new Results();
+                                res.setDate(resultSet.getString("Date"));
+                                res.setAcessos(resultSet.getInt("acessos"));
+                                Res.add(res);
                         }
-                        return Regs;
+                        return Res;
                 } catch (final SQLException e) {
                         System.out.println("Falha de conexão com a base de dados");
                         e.printStackTrace();
@@ -70,16 +71,16 @@ public class RegsDao {
                                 e.printStackTrace();
                         }
                 }
-                return Regs;
+                return Res;
         }
 
-        public boolean update(Regs regs){
+        public boolean update(Results res){
                 Connection conexao = mysql.getConnection();
                 try{
                         PreparedStatement statement=conexao.prepareStatement(updateSQL);
 
-                        statement.setString(1, regs.getDate());
-                        statement.setInt(2, regs.getAcessos());
+                        statement.setInt(2, res.getAcessos());
+                        statement.setString(1, res.getDate());
 
                         int registros= statement.executeUpdate();
 

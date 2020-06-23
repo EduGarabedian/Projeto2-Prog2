@@ -29,7 +29,7 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 //Read the data
-d3.json("/api/trends",
+d3.json("/api/regs",
     // Now I can use this dataset:
     function (data) {
 
