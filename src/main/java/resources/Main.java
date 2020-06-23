@@ -44,7 +44,8 @@ public class Main extends Application<Configuration>{
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
         // Registrando Recursos
-        RegsResource regsResource = new RegsResource();
+        RegsDao dao= new RegsDao();
+        RegsResource regsResource = new RegsResource(dao);
         environment.jersey().register(regsResource);
 
         // Mudar rotas dos recursos

@@ -1,23 +1,36 @@
 package api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Results {
-    private String date;
-    private double value;
+    private String term;
+    private List<Results> results;
 
-    public String getDate(){
-        return date;
+    public Results(){
+        this.results= new ArrayList();
     }
 
-    public void setDate(String date){
-        this.date=date;
+    public Results (String term, List<Results> data){
+        this.term=term;
+        this.results=data;
+
     }
 
-    public double getValue(){
-        return value;
+    public String getTerm(){
+        return term;
     }
 
-    public void setValue(double value){
-        this.value=value;
+    public void setTerm(String term){
+        this.term=term;
+    }
+
+    public List<Results> getResults(){
+        return results;
+    }
+
+    public void setResults(List<Results> results) {
+        this.results = results == null ? new ArrayList() : results;
     }
 
 

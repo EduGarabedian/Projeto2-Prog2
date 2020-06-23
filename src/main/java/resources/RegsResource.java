@@ -11,8 +11,8 @@ import javax.ws.rs.core.Response;
 public class RegsResource {
         RegsDao dao;
 
-    public RegsResource() {
-
+    public RegsResource(RegsDao dao) {
+        this.dao=dao;
     }
 
     @POST

@@ -53,7 +53,7 @@ public class RegsDao {
 
                         while (resultSet.next()) {
                                 Regs regs = new Regs();
-                                regs.setDate(resultSet.getString("date"));
+                                regs.setDate(resultSet.getString("Date"));
                                 regs.setAcessos(resultSet.getInt("acessos"));
                                 Regs.add(regs);
                         }
