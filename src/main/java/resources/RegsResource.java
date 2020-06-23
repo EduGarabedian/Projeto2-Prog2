@@ -22,9 +22,8 @@ public class RegsResource {
         }
 
         @GET
-        public Response read(){
-            List<Regs> regsList= dao.read();
-            return Response.ok(regsList).build();
+        public List<Regs> read(){
+        return this.dao.read();
         }
 
         @PUT
