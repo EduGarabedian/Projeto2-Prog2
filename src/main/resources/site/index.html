@@ -1,14 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=1024px, initial-scale=1, user-scalable=yes">
+    <title>#StreamDontStartNow</title>
+    <!-- ESTILOS -->
+    <link rel="stylesheet" type="text/css" href="./edu.css">
+    <!-- SCRIPTS -->
     <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="./local.js"></script>
 </head>
 
-<body>
+<body id="body">
+
 <H1>Gráfico Temporal do Google Trends</H1>
 <h3>Termo: <div id="term"></div></h3>
 <div id="my_dataviz"></div>
 <script src="local.js"></script>
+</body>
+<center>
+
+    <img src="youtube.jpg" id="logo">
+    </div>
+    <ul class="menu">
+        <li id="logo"></li>
+
+    </ul>
+    </div>
+
+
+    <h2 id="graphic-name">YOUTUBE</h2>
+    <div id="term"></div>
+    <div id="my_dataviz"></div>
+</center>
+
+
+
+
+<div id = "leftbox">
+    <center>
+        <h3 style="font-weight:1000">Create</h3>
+        <table>
+            <tr>
+                <td><b>Data do acesso(Ex: 2020-06-01)</b></td>
+                <td><input type="text" id="txtNome"></td>
+            </tr>
+            <tr >
+                <td style="padding-top: 8px"><b>Numero de acessos</b></td>
+                <td style="padding-top: 8px"><input type="text" id="txtMatricula"></td>
+            </tr>
+            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="criarProfessor()" value="Criar" id="criar"></center></td></tr>
+        </table>
+    </center>
+</div>
+
+<div id = "rightbox">
+    <center>
+        <h3 style="font-weight:1000">Update</h3>
+        <table>
+            <tr>
+            </tr>
+
+            <td id="idProfessor"></td>
+            <tr>
+                <td id="idProfessor"><b>Alterar data de acesso(Ex: 2020-06-01)</b></td>
+                <td><input type="text" id="txtNome"></td>
+            </tr>
+            <tr>
+                <td style="padding-top: 8px"><b>Alterar data de acesso:</b></td>
+                <td style="padding-top: 8px"><input type="text" id="txtMatricula"></td>
+            </tr>
+            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="atualizarProfessor()" value="Salvar" id="atualizar"></center></td></tr>
+        </table>
+        <p style="font-weight:bold" id="mensagem"></p>
+
+    </center>
+</div>
+
+
+<div id = "middlebox">
+    <center>
+        <h3 style="font-weight:1000">delete</h3>
+        <table>
+            <tr>
+            </tr>
+
+            <td id="idProfessor"></td>
+            <tr>
+                <td><b>deletar data de acesso(Ex: 2020-06-01)</b></td>
+                <td><input type="text" id="txtNome"></td>
+            </tr>
+            <tr>
+                <td style="padding-top: 8px"><b>Excluir data de acesso:</b></td>
+                <td style="padding-top: 8px"><input type="text" id="txtMatricula"></td>
+            </tr>
+            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="atualizarProfessor()" value="Salvar" id="atualizar"></center></td></tr>
+        </table>
+        <p style="font-weight:bold" id="mensagem"></p>
+
+    </center>
+
+</div>
+
 </body>
 </html>
