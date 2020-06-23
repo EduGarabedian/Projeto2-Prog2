@@ -11,7 +11,7 @@ import java.util.List;
 public class RegsDao {
         private String createSQL = "INSERT INTO mack_edu.registros VALUES (?,?)";
         private String readSQL = "SELECT * FROM mack_edu.registros";
-        private String updateSQL = "UPDATE mack_edu.registros SET date=? and acessos=?";
+        private String updateSQL = "UPDATE mack_edu.registros SET date=?, acessos=?";
         private  String deleteSQL= "DELETE FROM mack_edu.registros WHERE date=?";
 
         private final mySQLConnection mysql = new mySQLConnection();
