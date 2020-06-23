@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class mySQLConnection {
     String url="jdbc:mysql://127.0.0.1:3306/mack_edu";
     String usuario="Edu";
-    String senha="knightartorias";
+    String senha="root";
 
     public Connection getConnection(){
         try{

@@ -1,5 +1,6 @@
 package resources;
 
+import api.Regs;
 import db.RegsDao;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
@@ -7,20 +8,14 @@ import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
-
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import java.util.EnumSet;
 
 public class Main extends Application<Configuration>{
-    public static void main( String[] args ) {
-        try {
-            new Main().run(args);
-        }catch(Exception ex) {
-            ex.printStackTrace();
-        }
+    public static void main( String[] args ) throws Exception{
+        new Main().run(new String[]{"server"});
     }
-
 
     @Override
     public String getName() {
@@ -29,7 +24,7 @@ public class Main extends Application<Configuration>{
 
     @Override
     public void initialize(Bootstrap<Configuration> bootstrap) {
-        AssetsBundle assetsBundle = new AssetsBundle("/site", "/", "index.html");
+        AssetsBundle assetsBundle = new AssetsBundle("/html", "/site", "index.html");
         bootstrap.addBundle(assetsBundle);
     }
 
@@ -49,9 +44,8 @@ public class Main extends Application<Configuration>{
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
         // Registrando Recursos
-        RegsDao dao = new RegsDao();
-        RegsResource trendsResource = new RegsResource(dao);
-        environment.jersey().register(trendsResource);
+        RegsResource regsResource = new RegsResource();
+        environment.jersey().register(regsResource);
 
         // Mudar rotas dos recursos
         environment.jersey().setUrlPattern("/api/*");

@@ -7,7 +7,11 @@ import java.util.List;
         private String date;
         private int acessos;
 
-        public Regs() {
+        public Regs(){
+
+        }
+
+        public Regs(List regs, String date, int acessos) {
             this.regs = regs;
             this.date= date;
             this.acessos=acessos;

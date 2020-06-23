@@ -11,19 +11,20 @@ import javax.ws.rs.core.Response;
 public class RegsResource {
         RegsDao dao;
 
-        public RegsResource(RegsDao dao){
-            this.dao=dao;
-        }
+    public RegsResource() {
 
-        @POST
+    }
+
+    @POST
         public Regs create(Regs r){
             this.dao.create(r);
             return r;
         }
 
         @GET
-        public List<Regs> getResults(){
-            return this.dao.read();
+        public Response read(){
+            List<Regs> regsList= dao.read();
+            return Response.ok(regsList).build();
         }
 
         @PUT
