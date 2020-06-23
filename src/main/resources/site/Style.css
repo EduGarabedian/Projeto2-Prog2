@@ -14,6 +14,12 @@
 	height: 125px;
 }
 
+#logo2{
+	float: left;
+    width: 225px;
+	height: 125px;
+}
+
 .menu{
 	width: 100%;
 	background-color: white;
@@ -50,7 +56,17 @@
     text-align: center;
     margin-top: 5px;
 }
-
+#atualizar2{
+    box-shadow: 5px 5px 5px #3c132b;
+    border-radius: 3px;
+    background-color: black;
+    border-color: white;
+    height:30px;
+    color: white;
+    font-weight: 1000;
+    text-align: center;
+    margin-top: 5px;
+}
 #apagar{
     box-shadow: 5px 5px 5px #0e3c75;
     border-radius: 3px;
@@ -63,7 +79,7 @@
     margin-top: 0px;
 }
 
-#ladoPT {
+#neymar1 {
     float:left;
     background:red;
     width:32%;
@@ -72,7 +88,7 @@
 
 }
 
-#psdb {
+#neymar3 {
     float:left;
     background:red;
     width:32%;
@@ -82,7 +98,7 @@
 
 }
 
-#republicanos{
+#neymar2{
     float:right;
     background:red;
     width:36%;
