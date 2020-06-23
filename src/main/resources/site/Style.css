@@ -63,7 +63,7 @@
     margin-top: 0px;
 }
 
-#leftbox {
+#ladoPT {
     float:left;
     background:red;
     width:32%;
@@ -72,7 +72,7 @@
 
 }
 
-#middlebox {
+#psdb {
     float:left;
     background:red;
     width:32%;
@@ -82,7 +82,7 @@
 
 }
 
-#rightbox{
+#republicanos{
     float:right;
     background:red;
     width:36%;
