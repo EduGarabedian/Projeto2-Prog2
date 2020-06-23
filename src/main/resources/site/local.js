@@ -1,21 +1,3 @@
-
-
-//Teste insere acessos
-//var button = document.querySelector('button');
-
-button.onclick = function readAcesso(data, acesso) {
-
-}
-
-
-function readDataAcesso(data, acesso) {
-    var data = document.getElementById("txtNome");
-    var acesso = document.getElementById("txtMatricula");
-}
-
-
-//////////////////////////////////////////////////////////////////////////////////
-
 // set the dimensions and margins of the graph
 var margin = { top: 10, right: 30, bottom: 30, left: 60 },
     width = 860 - margin.left - margin.right,
