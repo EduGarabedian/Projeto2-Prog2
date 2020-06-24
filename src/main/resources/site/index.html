@@ -1,100 +1,158 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1024px, initial-scale=1, user-scalable=yes">
-    <title>#VoceNoYoutube</title>
+    <title>Youtube</title>
     <!-- ESTILOS -->
     <link rel="stylesheet" type="text/css" href="./Style.css">
     <!-- SCRIPTS -->
     <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="./local.js"></script>
+    <script src="local.js"></script>
+    <div>
+        <div id="logo">
+            <img src="you.jpg"/>
+        </div>
+        <ul class="menu">
+            <h3>YOUTUBE</h3>
+        </ul>
+    </div>
+
 </head>
 
 <body id="body">
+
 <center>
-
-    <img src="you.jpg" id="logo">
-    </div>
-    <ul class="menu">
-        <li id="logo2"></li>
-
-    </ul>
-    </div>
-
-
-    <h2 id="graphic-name">YOUTUBE</h2>
+    <h2 id="graphic-name">Youtube</h2>
     <div id="term"></div>
     <div id="my_dataviz"></div>
+    <style>
+    .myCircle:hover {
+      stroke: "Blue";
+    }
+    </style>
 </center>
 
-
-
-
-<div id = "neymar1">
+<!-- DELETE -->
+<div id = "rightbox">
     <center>
-        <h3 style="background-color:white;" >Create</h3>
+        <h2 style="font-weight:850">Deletar</h2>
         <table>
             <tr>
-                <td><b>Data do acesso(Ex: 2020-06-01)</b></td>
-                <td><input type="text" ></td>
+                <td><b>Semana:</b></td>
+                <td><input type="text/javascript" id="Data_del" placeholder="YYYY-MM-DD"></td>
+            </tr>
+            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="apagarRegs()" value="Apagar" id="apagar"></center></td></tr>
+        </table>
+    </center>
+</div>
+<script>
+    const Data_del = document.querySelector("#Data_del");
+
+    async function apagarRegs() {
+            const URL = `/api/regs/${Data_del.value}`;
+            const deleteRequest = {
+            method:'DELETE'
+        };
+        try {
+            fetch(URL, deleteRequest).then(resposta => confirm("Atualizado")?location.reload():location.reload());
+            } catch (e) {
+            corpoTabela.innerHTML = e;
+            }
+        }
+
+</script>
+
+<!-- CREATE -->
+<div id = "leftbox">
+    <center>
+        <h3 style="font-weight:850">Criar</h3>
+        <table>
+            <tr>
+                <td><b>Semana:</b></td>
+                <td><input type="text/javascript" id="Datatxt" placeholder="YYYY-MM-DD"></td>
             </tr>
             <tr >
-                <td style="padding-top: 8px"><b>Numero de acessos</b></td>
-                <td style="padding-top: 8px"><input type=></td>
+                <td style="padding-top: 8px"><b>Acessos:</b></td>
+                <td style="padding-top: 8px"><input type="number" id="Acessostxt"></td>
             </tr>
-            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="criarProfessor()" value="Criar" id="criar"></center></td></tr>
+            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="criarRegs()" value="Criar" id="criar"></center></td></tr>
         </table>
     </center>
 </div>
+<script>
+    const Datatxt = document.querySelector("#Datatxt");
+    const Acessostxt = document.querySelector("#Acessostxt");
 
-<div id = "neymar2">
+    function mostrarMensagem(teste) {
+        confirm("Adicionado")?location.reload():location.reload();
+    }
+
+    async function criarRegs() {
+    const URL = "/api/regs";
+    const dadosRegs = {
+        "date": Datatxt.value,
+        "acessos": Acessostxt.value
+    };
+
+    const postRequest = {
+    method:'POST',
+    body: JSON.stringify(dadosRegs),
+    headers: { 'Content-type': 'application/json;charset=UTF-8' }
+    };
+        try {
+            fetch(URL, postRequest).then(resposta => resposta.json()).then(jsonResponse => mostrarMensagem(jsonResponse));
+        } catch (e) {
+        corpoTabela.innerHTML = e;
+        }
+        }
+</script>
+
+<!-- UPDATE -->
+<div id = "middlebox">
     <center>
-        <h3 style="background-color:white;">Update</h3>
+        <h3 style="font-weight:1000">Atualizar</h3>
         <table>
             <tr>
+                <td><b>Semana:</b></td>
+                <td><input type="text/javascript" id="updateData" placeholder="YYYY-MM-DD"></td>
             </tr>
-
-            <td> </td>
-            <tr>
-                <td id=""><b>Alterar data de acesso(Ex: 2020-06-01)</b></td>
-                <td><input type="text" id="txtNome"></td>
+            <tr >
+                <td style="padding-top: 8px"><b>Acessos:</b></td>
+                <td style="padding-top: 8px"><input type="number" id="updateAcessos"></td>
             </tr>
-            <tr>
-                <td style="padding-top: 8px"><b>Alterar data de acesso:</b></td>
-                <td style="padding-top: 8px"><input type="text" id="txt"></td>
-            </tr>
-            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="atualizarProfessor()" value="Salvar" id="atualizar"></center></td></tr>
+            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="atualizarRegs()" value="Salvar" id="atualizar"></center></td></tr>
         </table>
-        <p style="font-weight:bold" id="mensagem"></p>
-
     </center>
 </div>
+<script>
+    const updateAcessos = document.querySelector("#updateAcessos");
+    const updateData = document.querySelector("#updateData");
 
+    async function atualizarRegs() {
+            const URL = '/api/regs';
+            const dadosRegs = {
+            'date': updateData.value,
+            'acessos': updateAcessos.value
 
-<div id = "neymar3">
-    <center>
-        <h3 style="background-color:white;">delete</h3>
-        <table>
-            <tr>
-            </tr>
+            };
+        const putRequest = {
+            method:'PUT',
+            body: JSON.stringify(dadosRegs),
+            headers: { 'Content-type': 'application/json;charset=UTF-8' }
+            };
+            try {
+            fetch(URL, putRequest).then(resposta => resposta.json()).then(jsonResponse => (confirm("Atualizado")?location.reload():location.reload()));
+            } catch (e) {
+            corpoTabela.innerHTML = e;
+            }
+        }
 
-            <td ></td>
-            <tr>
-                <td><b>deletar data de acesso(Ex: 2020-06-01)</b></td>
-                <td><input type="text" ></td>
-            </tr>
-            <tr>
-                <td style="padding-top: 8px"><b>Excluir data de acesso:</b></td>
-                <td style="padding-top: 8px"><input type="text" ></td>
-            </tr>
-            <tr><td></td><td style="padding-top: 2px"><center><input type="button" onclick="atualizarProfessor()" value="Salvar" id="atualizar2"></center></td></tr>
-        </table>
-        <p style="font-weight:bold" id="mensagem2"></p>
+</script>
 
-    </center>
-
-</div>
+<!-- SCRIPTS -->
+<script src="local.js"></script>
 
 </body>
 </html>

@@ -12,7 +12,7 @@ import java.util.List;
 public class RegsDao {
         private String createSQL = "INSERT INTO mack_edu.registros VALUES (?,?)";
         private String readSQL = "SELECT * FROM mack_edu.registros";
-        private String updateSQL = "UPDATE mack_edu.registros SET date=?, acessos=?";
+        private String updateSQL = "UPDATE mack_edu.registros SET acessos=? WHERE date=?";
         private  String deleteSQL= "DELETE FROM mack_edu.registros WHERE date=?";
 
         private final mySQLConnection mysql = new mySQLConnection();
@@ -79,8 +79,8 @@ public class RegsDao {
                 try{
                         PreparedStatement statement=conexao.prepareStatement(updateSQL);
 
-                        statement.setInt(2, res.getAcessos());
-                        statement.setString(1, res.getDate());
+                        statement.setString(2, res.getDate());
+                        statement.setInt(1, res.getAcessos());
 
                         int registros= statement.executeUpdate();
 

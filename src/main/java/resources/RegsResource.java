@@ -1,5 +1,4 @@
 package resources;
-import api.Regs;
 import api.Results;
 import db.RegsDao;
 import java.util.List;
